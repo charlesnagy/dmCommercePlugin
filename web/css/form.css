@@ -1,0 +1,22 @@
+.subsection {
+    width: 98%;
+    margin: 1%;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px; 
+}
+.w50 {
+    width: 48%;
+}
+.w50.fright {
+    margin-left: 20px;
+}
+
+table.subsection th { padding: 1%; width: 60px; vertical-align: middle; overflow: hidden; 
+background: #eee; /* Old browsers */
+}
+table.subsection td { padding: 20px; min-height: 80px;}
+
+.sf_admin_form_row_inner.property {padding: 1%;}

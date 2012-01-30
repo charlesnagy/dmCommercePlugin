@@ -12,13 +12,10 @@ generator:
       fields:
         product_types_list:
           label: 'Product Types'
-        dm_gallery: Gallery
       list:
         display:
           - '=name'
-          - dm_gallery
           - properties_list
-          - product_types_list
           - created_by
           - updated_by
         sort:
@@ -37,8 +34,6 @@ generator:
           NONE: [name]
           'Product Types': [product_types_list]
           'Product Characteristic Type Properties': [properties_list]
-          Gallery: [dm_gallery]
-          Others: [created_by, updated_by]
         class: DmComProductCharTypeAdminForm
         fields: {  }
       edit: ~

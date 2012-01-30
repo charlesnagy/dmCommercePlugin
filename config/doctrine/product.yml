@@ -5,7 +5,7 @@ DmComProduct:
     Dmblameable: ~
     DmGallery: ~
     I18n:
-      fields: [description]
+      fields: [description, summary]
       length: 5
       actAs:
         DmVersionable:
@@ -17,8 +17,18 @@ DmComProduct:
       autoincrement: true
     name: 
       type: string(255)
-    description:
+    summary:
       type: string(2000)
+    description:
+      type: string()
+    price_hidden:
+      type: boolean
+    price:
+      type: integer(11)
+    price_net:
+      type: integer(11)
+    vat:
+      type: integer(3)
     dm_com_manufacturer_id:
       type: integer(11)
       notnull: false
@@ -52,7 +62,7 @@ DmComProductDeclination:
       primary: true
       autoincrement: true
     dm_com_product_id:
-      type: integer(11):
+      type: integer(11)
       notnull: true
   relations:
     product:

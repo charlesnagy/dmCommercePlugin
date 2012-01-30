@@ -1,15 +1,11 @@
 DmComProductType:
   actAs: 
-    NestedSet:
-      hasManyRoots: true
     I18n:
       fields: [name]
       length: 5
       actAs:
         DmVersionable: ~
         Dmblameable: ~
-    DmVersionable: ~
-    Dmblameable: ~
   columns: 
     id:
       type: integer(11)

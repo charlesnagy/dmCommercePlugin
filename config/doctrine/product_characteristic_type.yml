@@ -6,7 +6,6 @@ DmComProductCharType:
       actAs:
         DmVersionable:
         Dmblameable:
-    DmGallery:
   columns:
     id:
       type: integer(11)
@@ -27,7 +26,71 @@ DmComProductCharType:
       local: id
       foreign: dm_com_product_char_type_id
       foreignAlias: CharType
-    
+   
+DmComProductCharTypeProperty:
+  actAs:
+    DmSortable:
+    I18n:
+      fields: [name]
+      length: 5
+      actAs:
+        DmVersionable:
+        Dmblameable:
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      notnull: true
+    dm_com_product_char_type_id: 
+      type: integer(11)
+      notnull: true
+    type:
+      type: integer(2)
+      notnull: true
+  relations:
+    productCharType:
+      class: DmComProductCharType
+      type: one
+      foreignType: many
+      local: dm_com_product_char_type_id
+      foreign: id
+    values:
+      class: DmComProductCharTypePropertyProduct
+      type: many
+      foreignType: one
+      foreign: dm_com_product_char_type_propery_id
+      local: id
+      
+# Values class Product Char Type Property <-> Product
+DmComProductCharTypePropertyProduct: 
+  actAs:
+    DmVersionable:
+    Dmblameable:  
+  columns:
+    dm_com_product_char_type_propery_id:
+      type: integer(11)
+    dm_com_product_id:
+      type: integer(11)
+    value:  string(255)
+  relations:
+    product:
+      class: DmComProduct
+      type: one
+      foreignType: many
+      foreignAlias: Properties
+      local: dm_com_product_id
+      foreign: id
+    property:
+      class: DmComProductCharTypeProperty
+      type: one
+      foreignType: many
+      local: dm_com_product_char_type_propery_id
+      foreign: id
+          
+# Ref class Product Characteristic Type <-> Product Type
 DmComProductTypeProductCharType:
   actAs:
     DmVersionable:
@@ -51,53 +114,3 @@ DmComProductTypeProductCharType:
       foreign: id
       local: dm_com_product_char_type_id
 
-DmComProductCharTypeProperty:
-  actAs:
-    I18n:
-      fields: [name]
-      length: 5
-      actAs:
-        DmVersionable:
-        Dmblameable:
-  columns:
-    id:
-      type: integer(11)
-      primary: true
-      autoincrement: true
-    name:
-      type: string(255)
-      notnull: true
-    dm_com_product_char_type_id: 
-      type: integer(11)
-      notnull: true
-    dm_com_product_char_type_property_type_id:
-      type: integer(11)
-      notnull: true
-  relations:
-    type:
-      class: DmComProductCharTypePropertyType
-      type: one
-      foreignType: many
-      local: dm_com_product_char_type_property_type_id  
-      foreign: id
-      foreignAlias: properties
-      
-DmComProductCharTypePropertyType:
-  actAs:
-    I18n:
-      fields: [name]
-      length: 5
-      actAs:
-        DmVersionable:
-        Dmblameable:
-    DmVersionable:
-    Dmblameable:
-  columns:
-    id:
-      type: integer(11)
-      primary: true
-      autoincrement: true
-    name: 
-      type: string(255)
-      notnull: true
-      

@@ -11,9 +11,14 @@ DmComSupplier:
     name: 
       type: string(255)
       notnull: true
-    dm_com_address_id:
-      type: integer(11)
-      notnull: true
+    address_country:
+      type: string(255)
+    address_code:
+      type: string(255)
+    address_city:
+      type: string(255)
+    address_street:
+      type: string(255)
     website_url: 
       type: string(255)
   relations:
@@ -22,12 +27,6 @@ DmComSupplier:
       type: many
       foreignType: many
       foreignAlias: manufacturer
-    address:
-      class: DmComAddress
-      type: one
-      foreignType: one
-      local: dm_com_address_id
-      foreign: id
       
 DmComSupplierProduct:
   actAs:

@@ -29,9 +29,6 @@ Commerce:
         listByManufacturer:
           filters: [manufacturers]
           cache: true
-        listBySupplyer:
-          filters: [supplyers]
-          cache: true
         show: 
           cache: true
         showInCategory:
@@ -59,12 +56,6 @@ Commerce:
       page: true
       name: Supplier|Suppliers
       admin: true
-      front: true
-      components:
-        list:
-          cache: static
-        show:
-          cache: static
           
     Manufacturer:
       model: DmComManufacturer
@@ -96,65 +87,13 @@ Commerce:
       name: Product Characteristic Type|Product Characteristic Types
       admin: true
       front: true
+      components:
+        show:
+          cache: true
       
     ProductCharacteristicTypeProperty:
       model: DmComProductCharTypeProperty
       page: false
       name: Product Characteristic Type Property|Product Characteristic Type Properties
       admin: true
-      front: true
-    ProductCharacteristicTypePropertyType:
-      model: DmComProductCharTypePropertyType
-      page: false
-      name: Product Characteristic Type Property Type|Product Characteristic Type Property Types
-      admin: true
-      front: true
-  
-  Locations:
-    Country:
-      model: DmComCountry
-      page: false
-      name: Country|Countries
-      admin: true
       
-    City:
-      model: DmComCity
-      page: false
-      name: City|Cities
-      admin: true
-      front: true
-      components:
-        list: 
-          cache: true
-        show: 
-          cache: true
-            
-    Address:
-      model: DmComAddress
-      page: false
-      name: Address|Addresses
-      admin: true
-      front: true
-      components:
-        list:
-          cache: true
-        show:
-          cache: true
-          
-    StreetType:
-      model: DmComStreetType
-      page: false
-      name: Street Type|Street Types
-      admin: true
-      front: false
-      
-    BuildingFloor:
-      model: DmComBuildingFloor
-      page: false
-      name: Building Floor|Building Floors
-      admin: true
-      front: false
-    
-    
-      
-              

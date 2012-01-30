@@ -13,7 +13,7 @@ generator:
       list:
         display:
           - '=name'
-          - dm_com_product_char_type_property_type_id
+          - type
           - dm_com_product_char_type_id
           - created_by
           - updated_by
@@ -22,18 +22,17 @@ generator:
           - asc
         table_method: getAdminListQuery
         table_count_method: ~
-        sortable: false
+        sortable: true
       filter:
         display:
           - name
           - dm_com_product_char_type_id
-          - dm_com_product_char_type_property_type_id
+          - type
           - created_by
           - updated_by
       form:
         display:
-          NONE: [name, dm_com_product_char_type_property_type_id, dm_com_product_char_type_id]
-          Others: [created_by, updated_by]
+          NONE: [name, type, dm_com_product_char_type_id]
         class: DmComProductCharTypePropertyAdminForm
         fields: {  }
       edit: ~

@@ -12,5 +12,18 @@
  */
 abstract class PluginDmComProductCharTypeProperty extends BaseDmComProductCharTypeProperty
 {
-
+    public function getWidget()
+    {
+        switch ($this->getType()) {
+            case DmComProductCharTypePropertyTable::TYPE_FEATURE : {
+                return new sfWidgetFormInputCheckbox();
+                break;
+            }
+            default : {
+                return new sfWidgetFormInput();
+                break;
+            }
+        }
+    }
+    
 }

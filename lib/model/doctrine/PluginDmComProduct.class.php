@@ -12,5 +12,39 @@
  */
 abstract class PluginDmComProduct extends BaseDmComProduct
 {
+    public function getCharacteristics()
+    {
+        $q = Doctrine::getTable('DmComProductCharTypeProperty')->createQuery()
+                ->select('p.*, ptr.*, v.*, ct.*')
+                ->from('DmComProductCharTypeProperty p')
+                ->leftJoin('p.Translation ptr')
+                ->innerJoin('p.productCharType ct')
+                ->innerJoin('ct.productTypes pt')
+                ->where('pt.id = ?', $this->getDmComProductTypeId())
+                ->orderBy('ct.id, p.position');
+        
+        return $q->execute();
+    }
+    
+    public function getProperties()
+    {
+        $properties = $this->getCache('properties');
+        
+        if(!$properties)
+        {
+            $q = Doctrine::getTable('DmComProductCharTypePropertyProduct')->createQuery()
+                    ->select('v.*, prop.*, ptr.*')
+                    ->from('DmComProductCharTypePropertyProduct v')
+                    ->innerJoin('v.property prop')
+                    ->leftJoin('prop.Translation ptr')
+                    ->where('v.dm_com_product_id = ?', $this->getId())
+                    ->orderBy('prop.position');
+
+            $properties = $q->execute();
+            $this->setCache('properties', $properties);
+        }
+        
+        return $properties;
+    }
 
 }

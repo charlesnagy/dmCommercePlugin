@@ -4,7 +4,7 @@ DmComCategory:
     NestedSet: 
       hasManyRoots: true
     I18n:
-      fields: [title]
+      fields: [title, description]
       length: 5
       actAs:
         DmVersionable: ~
@@ -19,6 +19,8 @@ DmComCategory:
       autoincrement: true
     title: 
       type: string(255)
+    description: 
+      type: string()
   relations:
     products:
       class: DmComProduct

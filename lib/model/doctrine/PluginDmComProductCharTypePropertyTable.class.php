@@ -7,6 +7,11 @@
  */
 class PluginDmComProductCharTypePropertyTable extends myDoctrineTable
 {
+    const TYPE_STRING = 0;
+    const TYPE_INTEGER = 1;
+    const TYPE_URL = 2;
+    const TYPE_FEATURE = 3;
+    
     /**
      * Returns an instance of this class.
      *
@@ -15,5 +20,15 @@ class PluginDmComProductCharTypePropertyTable extends myDoctrineTable
     public static function getInstance()
     {
         return Doctrine_Core::getTable('PluginDmComProductCharTypeProperty');
+    }
+    
+    public function getTypes()
+    {
+        return array(
+            self::TYPE_STRING => 'Free text',
+            self::TYPE_INTEGER => 'Numeric',
+            self::TYPE_URL => 'URL',
+            self::TYPE_FEATURE => 'Feature',
+        );
     }
 }

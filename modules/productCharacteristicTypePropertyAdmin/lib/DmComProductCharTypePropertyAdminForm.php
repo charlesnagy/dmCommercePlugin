@@ -12,5 +12,9 @@ class DmComProductCharTypePropertyAdminForm extends BaseDmComProductCharTypeProp
   public function configure()
   {
     parent::configure();
+    $this->setWidget('type', new sfWidgetFormChoice(array('choices'=>  DmComProductCharTypePropertyTable::getInstance()->getTypes())));
+
+    $this->setValidator('type', new sfValidatorInteger());
+    
   }
 }

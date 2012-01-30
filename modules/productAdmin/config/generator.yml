@@ -15,6 +15,8 @@ generator:
         suppliers_list:
           label: Suppliers
         dm_gallery: Gallery
+        vat:
+          hint: %
       list:
         display:
           - '=name'
@@ -43,12 +45,13 @@ generator:
           - description
       form:
         display:
-          NONE: [name, dm_com_product_type_id, dm_com_manufacturer_id, created_by, updated_by]
+          NONE: [dm_com_product_type_id, name, dm_com_manufacturer_id ]
+          Pricing: [ price, vat, price_net ]
+          Others: [summary, description]
           Categories: [categories_list]
           Suppliers: [suppliers_list]
           'Product Declinations': [declinations_list]
           Gallery: [dm_gallery]
-          Others: [description]
         class: DmComProductAdminForm
         fields: {  }
       edit: ~

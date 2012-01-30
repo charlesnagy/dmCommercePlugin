@@ -13,13 +13,9 @@ generator:
         products_list:
           label: Products
         dm_gallery: Gallery
-        nested_set_parent_id:
-          label: 'Parent Category'
-          help: 'Choose ~ to make it root'
       list:
         display:
           - '=title'
-          - nested_set_parent_id
           - created_by
           - updated_by
           - dm_gallery
@@ -33,12 +29,11 @@ generator:
       filter:
         display:
           - title
-          - dm_ns_parent_id
           - created_by
           - updated_by
       form:
         display:
-          NONE: [title, nested_set_parent_id, created_by, updated_by]
+          NONE: [title, created_by, updated_by]
           Products: [products_list]
           Gallery: [dm_gallery]
         class: DmComCategoryAdminForm
