@@ -10,4 +10,9 @@
  */
 abstract class PluginDmComProductFormFilter extends BaseDmComProductFormFilter
 {
+    public function setup() {
+        parent::setup();
+        
+
+    }
 }

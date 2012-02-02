@@ -10,4 +10,8 @@
  */
 class productAdminGeneratorConfiguration extends BaseProductAdminGeneratorConfiguration
 {
+    public function getFilterDefaults()
+    {
+        return array('status' => array(1,2));
+    }
 }

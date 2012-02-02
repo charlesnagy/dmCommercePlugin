@@ -15,7 +15,12 @@ class DmComProductAdminForm extends BaseDmComProductForm
   {
     parent::configure();
     
+    $this->setWidget('status', new sfWidgetFormChoice(array('choices'=>array(0=>'Active', 1=>'Inactive', 2=>'Archive'), 'expanded'=>true)));
+    $this->setValidator('status', new sfValidatorChoice(array('choices'=>array(0, 1, 2))));
+    
     $this->setValidator('vat', new sfValidatorInteger(array('min'=>0, 'max'=>100, 'required'=>true)));
+    
+    $this->setWidget('description', new sfWidgetFormTextareaDmCkEditor());
     
     if(!$this->getObject()->isNew())
     {
@@ -88,9 +93,9 @@ class DmComProductAdminForm extends BaseDmComProductForm
   
   public function getStylesheets()
   {
-    return array(
+    return array_merge(parent::getStylesheets(), array(
       'dmCommercePlugin.form' => 'all'
-    );
+    ));
   }
   
   public function getSpecs()

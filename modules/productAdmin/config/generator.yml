@@ -45,7 +45,7 @@ generator:
           - description
       form:
         display:
-          NONE: [dm_com_product_type_id, name, dm_com_manufacturer_id ]
+          NONE: [dm_com_product_type_id, name, dm_com_manufacturer_id, status, tags ]
           Pricing: [ price, vat, price_net ]
           Others: [summary, description]
           Categories: [categories_list]

@@ -27,6 +27,7 @@ DmComSupplier:
       type: many
       foreignType: many
       foreignAlias: manufacturer
+      refClass: DmComSupplierProduct
       
 DmComSupplierProduct:
   actAs:

@@ -20,3 +20,9 @@ background: #eee; /* Old browsers */
 table.subsection td { padding: 20px; min-height: 80px;}
 
 .sf_admin_form_row_inner.property {padding: 1%;}
+
+div.sf_admin_form div.sf_admin_form_field_tags { float: none; width: 98%;}
+div.sf_admin_form div.sf_admin_form_field_tags div.sf_admin_form_row_inner .label_wrap { float: none;}
+div.sf_admin_form div.sf_admin_form_field_tags div.sf_admin_form_row_inner .content { margin-left: 0;}
+div.sf_admin_form div.sf_admin_form_field_summary { float: none; width: 98%;}
+div.sf_admin_form div.sf_admin_form_field_description { float: none; width: 98%;}

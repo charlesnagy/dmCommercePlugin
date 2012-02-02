@@ -13,15 +13,21 @@ generator:
         dm_com_product_list:
           label: Products
         dm_gallery: Gallery
+        address_country:
+          label: Country
+        address_city:
+          label: City
+        address_code:
+          label: Postcode
+        address_street:
+          label: Street
       list:
         display:
           - '=name'
-          - dm_com_address_id
           - created_by
           - updated_by
           - dm_gallery
           - products_list
-          - dm_com_product_list
           - website_url
         sort:
           - name
@@ -32,16 +38,15 @@ generator:
       filter:
         display:
           - name
-          - dm_com_address_id
           - website_url
           - created_by
           - updated_by
       form:
         display:
-          NONE: [name, dm_com_address_id, created_by, updated_by]
-          Products: [dm_com_product_list, products_list]
+          NONE: [name, website_url]
+          Address: [ address_country, address_code, address_city, address_street]
+          Products: [ products_list]
           Gallery: [dm_gallery]
-          Others: [website_url]
         class: DmComSupplierAdminForm
         fields: {  }
       edit: ~

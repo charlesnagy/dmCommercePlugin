@@ -4,6 +4,7 @@ DmComProduct:
     DmVersionable: ~
     Dmblameable: ~
     DmGallery: ~
+    DmTaggable: ~
     I18n:
       fields: [description, summary]
       length: 5
@@ -29,6 +30,8 @@ DmComProduct:
       type: integer(11)
     vat:
       type: integer(3)
+    status: 
+      type: integer(2)
     dm_com_manufacturer_id:
       type: integer(11)
       notnull: false
@@ -49,7 +52,10 @@ DmComProduct:
       type: one
       foreignType: many
       foreignAlias: products
-
+  indexes:
+    status_IDX1:
+      fields: [ status, dm_com_product_type_id ]
+    
 DmComProductDeclination:
   actAs:
     DmSortable:
